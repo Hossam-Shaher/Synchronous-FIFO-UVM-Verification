@@ -39,7 +39,7 @@
     fifo_seq_item_mon item;
     item = fifo_seq_item_mon::type_id::create("item");
     
-    @(negedge fifo_vif.clk); #(`CLK /2.0);
+    @(posedge fifo_vif.clk); #(`CLK /2.0);
     
     item.reset_n 	= fifo_vif.reset_n;
     item.re 		= fifo_vif.re;
@@ -55,4 +55,5 @@
     `uvm_info(this.get_type_name(), item.convert2string, UVM_LOW) 
   endtask: monitor
     
+
 `endif //FIFO_MONITOR
