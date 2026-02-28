@@ -11,7 +11,7 @@ Its **inputs** are:
 And its **outputs** are:
 * rd (read data)
 * full ("FIFO is full" flag)
-* emppty ("FIFO is empty" flag)
+* empty ("FIFO is empty" flag)
 
 Some **important internal variables** are:
 * w_ptr (write pointer); it holds the address of the word at which the next write operation will occur
