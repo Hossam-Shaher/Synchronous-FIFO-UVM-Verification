@@ -29,28 +29,31 @@ module FIFO
   
   logic [N:0] w_ptr, r_ptr;
   
-  always_ff @(posedge clk)
+  always @(posedge clk)
     if(!reset_n) begin
-      empty = 1;
-      full 	= 0;
-      w_ptr = 0; 
-      r_ptr	= 0; 
+      empty <= 1;
+      full 	<= 0;
+      w_ptr <= 0; 
+      r_ptr	<= 0; 
     end
     else begin
       //write data
       if(we && !full) begin
-        fifo[w_ptr] = wd;
-        w_ptr++;
+        fifo[w_ptr] <= wd;
+        w_ptr <= w_ptr + 1;
       end
       //read data
       if(re && !empty) begin
-        rd = fifo[r_ptr];
-        r_ptr++;
+        rd <= fifo[r_ptr];
+        r_ptr <= r_ptr + 1;
       end
-      //empty flag
-      empty = (r_ptr === w_ptr);
-      //full flag
-      full 	= (r_ptr[N-1:0] === w_ptr[N-1:0]) && (r_ptr[N] !== w_ptr[N]);
     end
+  
+  always @(*) begin
+    //empty flag
+    empty = (r_ptr === w_ptr);
+    //full flag
+    full = (r_ptr[N-1:0] === w_ptr[N-1:0]) && (r_ptr[N] !== w_ptr[N]);
+  end
  
 endmodule: FIFO
