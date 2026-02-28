@@ -1,4 +1,3 @@
-// Code your design here
 //2**N-word (depth) × M-bit (width) FIFO buffer
 //Inputs:
 //	clk, reset_n, re (read enable), we (write enable), wd (write data)
