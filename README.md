@@ -1,21 +1,21 @@
 # Synchronous FIFO: UVM Verification
 This **synchronous FIFO (First In First Out) buffer** has a size of 2**N-word (depth) × M-bit (width).
 
-Its **inputs** are:
-* clk
-* reset_n
-* re (read enable)
-* we (write enable)
-* wd (write data)
+Interface Signals:clk: System clock.reset_n: Active-low asynchronous reset.we / re: Write and Read enable control signals.wd: Write data input ($M$ bits).rd: Read data output ($M$ bits).full / empty: Status flags indicating the current state of the buffer.Key Internal Registers:w_ptr (Write Pointer): Tracks the address for the next write operation.r_ptr (Read Pointer): Tracks the address for the next read operation.
 
-And its **outputs** are:
-* rd (read data)
-* full ("FIFO is full" flag)
-* empty ("FIFO is empty" flag)
+**Interface Signals**:
+* **clk**: System clock
+* **reset_n**: Active-low synchronous reset
+* **re**: Read enable control signal 
+* **we**: Write enable control signal
+* **wd**: Write data input
+* **rd**: Read data output
+* **full**: "FIFO is full" status flag
+* **empty**: "FIFO is empty" status flag
 
-Some **important internal variables** are:
-* w_ptr (write pointer); it holds the address of the word at which the next write operation will occur
-* r_ptr (read pointer); it holds the address of the word at which the next read operation will occur
+**Important internal registers**:
+* **w_ptr** (write pointer): Tracks the address for the next write operation
+* **r_ptr** (read pointer): Tracks the address for the next read operation
 
 In this project, the FIFO is designed, modeled, and verified using the **SystemVerilog HDVL** and the **Universal Verification Methodology (UVM)**.
 
