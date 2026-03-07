@@ -1,21 +1,39 @@
 # Synchronous FIFO: UVM Verification
 This **synchronous FIFO (First In First Out) buffer** has a size of $2^N$-word $×$ $M$-bit (depth $×$ width).
 
-**Interface Signals**:
-* **clk**:        System clock
-* **reset_n**:    Active-low synchronous reset
-* **re**:         Read enable control signal 
-* **we**:         Write enable control signal
-* **wd**:         Write data input ($M$ bits)
-* **rd**:         Read data output ($M$ bits)
-* **full**:       "FIFO is full" status flag
-* **empty**:      "FIFO is empty" status flag
+In this project, the FIFO is designed, modeled, and verified using the **SystemVerilog HDVL** and the **Universal Verification Methodology (UVM)**.
+
+## Design
+
+The following figure shows the synchronous FIFO as a black box.
+
+<img width="580" height="660" alt="FIFO-Page-2 drawio" src="https://github.com/user-attachments/assets/8188fccb-f42e-4351-b93f-5cc09a9c7d0b" />
+
+**Parameters** of the synchronous FIFO are listed in the following table.
+
+Parameter Name | Default Value | Description
+:--- | :---: | :---
+`N` | 8 | FIFO's depth = $2^N$ word
+`M` | 4 | FIFO's width = $M$ bit
+
+**Ports** of the synchronous FIFO are listed in the following table.
+
+Port Name | Width | Direction | Description
+:--- | :---: | :---: | :--- 
+`clk` | 1 | Input | System clock
+`reset_n` | 1 | Input | Active-low synchronous reset 
+`we` | 1 | Input | Write enable (control signal) 
+`re` | 1 | Input | Read enable (control signal) 
+`wd` | $M$ | Input |  Write data 
+`rd` | $M$ | Output | Read data 
+`full` | 1 | Output | "FIFO is full" status flag 
+`empty` | 1 | Output | "FIFO is empty" status flag 
 
 **Important internal registers**:
-* **w_ptr** (write pointer): Tracks the address for the next write operation
-* **r_ptr** (read pointer): Tracks the address for the next read operation
+* `w_ptr` (write pointer): Tracks the address for the next write operation
+* `r_ptr` (read pointer): Tracks the address for the next read operation
 
-In this project, the FIFO is designed, modeled, and verified using the **SystemVerilog HDVL** and the **Universal Verification Methodology (UVM)**.
+## UVM Testbench
 
 The following figures show the **structure of the UVM testbench**.
 
