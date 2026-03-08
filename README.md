@@ -3,7 +3,7 @@ This **synchronous FIFO (First In First Out) buffer** has a size of $2^N$-word $
 
 In this project, the FIFO is designed, modeled, and verified using the **SystemVerilog HDVL** and the **Universal Verification Methodology (UVM)**.
 
-## Design
+## Design Under Test (DUT)
 
 The following figure shows the synchronous FIFO as a black box.
 
