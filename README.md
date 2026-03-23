@@ -7,7 +7,7 @@ In this project, the FIFO is designed, modeled, and verified using the **SystemV
 
 The following figure shows the synchronous FIFO as a black box.
 
-<img width="580" height="660" alt="FIFO-Page-2 drawio" src="https://github.com/user-attachments/assets/8188fccb-f42e-4351-b93f-5cc09a9c7d0b" />
+<img width="580" height="649" alt="FIFO-Page-2 drawio" src="https://github.com/user-attachments/assets/ce1418bf-b446-477d-b944-91a97272baa8" />
 
 **Parameters** of the synchronous FIFO are listed in the following table.
 
